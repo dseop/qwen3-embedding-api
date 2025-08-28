@@ -1,5 +1,11 @@
 # qwen3-embedding-api
-Qwen3-Embedding-0.6B 모델 기반 문장 임베딩 및 RESTful API 포트폴리오 예제입니다. 본 프로젝트는 실제 Colab에서 모델을 로딩·실행하여 로컬/원격 환경 모두에서 임베딩 추출과 유사도 분석, REST API 배포까지 전 과정을 다룹니다.
+Qwen3-Embedding-0.6B 모델 기반 문장 임베딩 및 RESTful API 구현.
+
+- Colab에서 모델을 로딩하고 API 엔드포인트로 사용할 수 있도록 구현했습니다.
+- 문장 리스트를 입력 받아 문장간 유사도 행렬을 출력합니다.
+- 배치 사이즈를 최대 32로 두었는데, colab의 성능에 따라 높일 수 있습니다.
+- 문장의 분류가 가능하다면 클러스터링 후 전달하는 것이 권장됩니다.
+
 ## 주요 구현 내용
 - **Qwen3-Embedding-0.6B** (Huggingface) 모델 기반 임베딩
 - **Google Colab에서** 모델 로딩 및 실습 환경 구성
