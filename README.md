@@ -12,6 +12,7 @@ Qwen3-Embedding-0.6B 모델 기반 문장 임베딩 및 RESTful API 구현.
 - **FastAPI** 기반 REST API 서버 제작 및 pyngrok 외부 공개
 - 텍스트 임베딩 추출, 임베딩 벡터 간 유사도 분석 기능 제공
 - 실제 REST API 요청/응답 예제 및 인퍼런스 사용법 코드 포함
+
 ## 실행 및 환경 구성 예시
 ```bash
 # Colab 환경 기준
@@ -51,6 +52,28 @@ public_url = ngrok.connect(8000)
 ## 원격 인퍼런스 & 데모
 - 서버 구동 후 Colab URL 또는 pyngrok 주소로 외부 POST 테스트 가능(ngrok api key 필요)
 - 실제 API 요청/응답 구조 및 코드 Colab 예제에 포함
+
+### Colab을 사용한 이유?
+**언어 모델 사용의 목표**: 350개 정도 문장을 임베딩 기반으로 상호 유사도를 분석하는 것
+**핵심 배경**: 언어 모델 활용 경험이 부족해 어떤 모델이 적합할지 모른다.
+1. 언어 모델 API 엔드포인트를 서비스 로직에서 분리, 목적에 따라 다른 API로 변경해도 코드 변경이 최소가 되도록 구현함.
+2. Qwen3-0.6B 모델이야 로컬에서 모델을 잠시 사용해도 되지만 부족한 로컬 리소스의 한계를 조금이라도 높이고자 했음.
+
+**테스트 결과 및 학습 포인트**
+Qwen3-Embedding-0.6B 모델로 365개의 문장 간 유사도 분석에 Colab 프리티어 기준으로 30초 정도(재측정 예정) 소요되었으며 유효한 결과를 얻음.
+```
+  {
+    "a": {
+      "category": "일상",
+      "topic": "오늘 옷을 고른 이유"
+    },
+    "b": {
+      "category": "일상",
+      "topic": "오늘 준비한 옷의 이유"
+    },
+    "score": 0.8887127637863159
+  }
+```
 
 ## 참고 자료
 - [Qwen3-Embedding-0.6B Colab 노트북(전체 코드/데모)](https://colab.research.google.com/drive/1jd2hDkavAH_F-w-2YX-EGvDgA56NoRJw)
