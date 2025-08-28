@@ -56,6 +56,3 @@ POST /similarity
 ## 참고
 - [FastAPI 공식 문서](https://fastapi.tiangolo.com/)
 - [Qwen3 모델 공식 GitHub](https://github.com/QwenLM/Qwen3)
-
----
-포트폴리오 및 데모 용도로 예시 코드와 간단 설명을 중점적으로 작성하세요.
